@@ -1,0 +1,19 @@
+{
+  "USER_VALIDATION_EMAIL_REQUIRED": "Please add an email",
+  "USER_VALIDATION_EMAIL_INVALID": "Please enter a valid email address",
+  "USER_VALIDATION_EMAIL_EXISTS": "User with this email already exists",
+  "USER_VALIDATION_PASSWORD_REQUIRED": "Please add a password",
+  "USER_VALIDATION_NAME_REQUIRED": "Please add a name",
+  "USER_VALIDATION_USERTYPE_INVALID": "Invalid user type. Must be 'Teacher' or 'Student'.",
+  "USER_NOT_FOUND": "User not found",
+  "INVALID_CREDENTIALS": "Invalid credentials",
+  "AD_VALIDATION_TITLE_REQUIRED": "Please add a title for the advertisement",
+  "AD_VALIDATION_DESCRIPTION_REQUIRED": "Please add a description for the advertisement",
+  "AD_VALIDATION_SUBJECT_REQUIRED": "Please specify the subject of the advertisement",
+  "AD_VALIDATION_PRICE_REQUIRED": "Please add a price for the course/session",
+  "AD_VALIDATION_EDUCATION_LEVEL_REQUIRED": "Please specify the education level",
+  "AD_NOT_FOUND": "Advertisement not found",
+  "SERVER_ERROR": "Server error. Please try again later.",
+  "INVALID_ID_FORMAT": "Invalid ID format.",
+  "VALIDATION_FAILED": "Validation failed."
+}
