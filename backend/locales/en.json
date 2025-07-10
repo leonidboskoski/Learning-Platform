@@ -1,19 +1,40 @@
 {
-  "USER_VALIDATION_EMAIL_REQUIRED": "Please add an email",
-  "USER_VALIDATION_EMAIL_INVALID": "Please enter a valid email address",
-  "USER_VALIDATION_EMAIL_EXISTS": "User with this email already exists",
-  "USER_VALIDATION_PASSWORD_REQUIRED": "Please add a password",
-  "USER_VALIDATION_NAME_REQUIRED": "Please add a name",
-  "USER_VALIDATION_USERTYPE_INVALID": "Invalid user type. Must be 'Teacher' or 'Student'.",
-  "USER_NOT_FOUND": "User not found",
-  "INVALID_CREDENTIALS": "Invalid credentials",
-  "AD_VALIDATION_TITLE_REQUIRED": "Please add a title for the advertisement",
-  "AD_VALIDATION_DESCRIPTION_REQUIRED": "Please add a description for the advertisement",
-  "AD_VALIDATION_SUBJECT_REQUIRED": "Please specify the subject of the advertisement",
-  "AD_VALIDATION_PRICE_REQUIRED": "Please add a price for the course/session",
-  "AD_VALIDATION_EDUCATION_LEVEL_REQUIRED": "Please specify the education level",
-  "AD_NOT_FOUND": "Advertisement not found",
-  "SERVER_ERROR": "Server error. Please try again later.",
-  "INVALID_ID_FORMAT": "Invalid ID format.",
-  "VALIDATION_FAILED": "Validation failed."
+  "USER": {
+    "VALIDATION": {
+      "USER_TYPE_REQUIRED": "Please specify user type (Teacher or Student)",
+      "EMAIL_REQUIRED": "Please add an email",
+      "EMAIL_INVALID": "Please enter a valid email address",
+      "EMAIL_EXISTS": "User with this email already exists",
+      "PASSWORD_REQUIRED": "Please add a password",
+      "NAME_REQUIRED": "Please add a name",
+      "USER_TYPE_INVALID": "Invalid user type. Must be 'Teacher' or 'Student'."
+    },
+    "MESSAGES": {
+      "REGISTERED_SUCCESSFULLY": "{userType} registered successfully",
+      "LOGIN_SUCCESSFUL": "Login successful",
+      "USER_UPDATED_SUCCESSFULLY": "User updated successfully",
+      "USER_DELETED_SUCCESSFULLY": "User deleted successfully",
+      "USER_NOT_FOUND": "User not found"
+    }
+  },
+  "AUTH": {
+    "INVALID_CREDENTIALS": "Invalid credentials"
+  },
+  "AD": {
+    "VALIDATION": {
+      "TITLE_REQUIRED": "Please add a title for the advertisement",
+      "DESCRIPTION_REQUIRED": "Please add a description for the advertisement",
+      "SUBJECT_REQUIRED": "Please specify the subject of the advertisement",
+      "PRICE_REQUIRED": "Please add a price for the course/session",
+      "EDUCATION_LEVEL_REQUIRED": "Please specify the education level"
+    },
+    "MESSAGES": {
+      "AD_NOT_FOUND": "Advertisement not found"
+    }
+  },
+  "COMMON": {
+    "SERVER_ERROR": "Server error. Please try again later.",
+    "INVALID_ID_FORMAT": "Invalid ID format.",
+    "VALIDATION_FAILED": "Validation failed."
+  }
 }

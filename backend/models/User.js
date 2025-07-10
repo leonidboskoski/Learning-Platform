@@ -1,33 +1,37 @@
-const mongoose = require("mongoose");
+// TODO
+//Achivements + EXP System
+
+const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema(
   {
     userType: {
       type: String,
-      required: [true, "USER_VALIDATION_USERTYPE_REQUIRED"],
+      required: [true, "USER.VALIDATION.USER_TYPE_REQUIRED"],
       enum: ["Teacher", "Student"],
     },
     email: {
       type: String,
-      required: [true, "USER_VALIDATION_EMAIL_REQUIRED"],
+      required: [true, "USER.VALIDATION.EMAIL_REQUIRED"],
       unique: true,
-      match: [/.+@.+\..+/, "USER_VALIDATION_EMAIL_INVALID"],
+      match: [/.+@.+\..+/, "USER.VALIDATION.EMAIL_INVALID"],
     },
     password: {
       type: String,
-      required: [true, "USER_VALIDATION_PASSWORD_REQUIRED"],
+      required: [true, "USER.VALIDATION.PASSWORD_REQUIRED"],
     },
     name: {
       type: String,
-      required: [true, "USER_VALIDATION_NAME_REQUIRED"],
+      required: [true, "USER.VALIDATION.NAME_REQUIRED"],
     },
+
     // --- Fields specific to 'Teacher' userType ---
     bio: {
       type: String,
       default: "",
     },
     subjects: {
-      type: [Mongoose.Schema.Types.ObjectId],
+      type: [mongoose.Schema.Types.ObjectId],
       ref: "Subject",
       default: [],
     },
@@ -41,21 +45,26 @@ const userSchema = mongoose.Schema(
       type: [String],
       default: [],
     },
+
     // --- Fields specific to 'Student' userType ---
     highSchoolUniversity: {
       type: String,
       default: "",
     },
+
     //Bonus Credits
     bonusCredits: {
       type: Number,
       default: 0,
       min: 0,
     },
+
   },
+
   {
     timestamps: true,
   }
+  
 );
 
 

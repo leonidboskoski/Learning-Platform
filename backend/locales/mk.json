@@ -1,19 +1,40 @@
 {
-  "USER_VALIDATION_EMAIL_REQUIRED": "Ве молиме внесете е-пошта",
-  "USER_VALIDATION_EMAIL_INVALID": "Ве молиме внесете валидна е-пошта адреса",
-  "USER_VALIDATION_EMAIL_EXISTS": "Корисник со оваа е-пошта веќе постои",
-  "USER_VALIDATION_PASSWORD_REQUIRED": "Ве молиме внесете лозинка",
-  "USER_VALIDATION_NAME_REQUIRED": "Ве молиме внесете име",
-  "USER_VALIDATION_USERTYPE_INVALID": "Невалиден тип на корисник. Мора да биде 'Професор' или 'Студент'.",
-  "USER_NOT_FOUND": "Корисникот не е пронајден",
-  "INVALID_CREDENTIALS": "Невалидни акредитиви",
-  "AD_VALIDATION_TITLE_REQUIRED": "Ве молиме додадете наслов за огласот",
-  "AD_VALIDATION_DESCRIPTION_REQUIRED": "Ве молиме додадете опис за огласот",
-  "AD_VALIDATION_SUBJECT_REQUIRED": "Ве молиме наведете го предметот на огласот",
-  "AD_VALIDATION_PRICE_REQUIRED": "Ве молиме додадете цена за курсот/сесијата",
-  "AD_VALIDATION_EDUCATION_LEVEL_REQUIRED": "Ве молиме наведете го нивото на образование",
-  "AD_NOT_FOUND": "Огласот не е пронајден",
-  "SERVER_ERROR": "Грешка на серверот. Ве молиме обидете се повторно подоцна.",
-  "INVALID_ID_FORMAT": "Невалиден формат на ID.",
-  "VALIDATION_FAILED": "Валидацијата не успеа."
+  "USER": {
+    "VALIDATION": {
+      "USER_TYPE_REQUIRED": "Ве молиме наведете тип на корисник (Професор или Студент)",
+      "EMAIL_REQUIRED": "Ве молиме внесете е-пошта",
+      "EMAIL_INVALID": "Ве молиме внесете валидна е-пошта адреса",
+      "EMAIL_EXISTS": "Корисник со оваа е-пошта веќе постои",
+      "PASSWORD_REQUIRED": "Ве молиме внесете лозинка",
+      "NAME_REQUIRED": "Ве молиме внесете име",
+      "USER_TYPE_INVALID": "Невалиден тип на корисник. Мора да биде 'Професор' или 'Студент'."
+    },
+    "MESSAGES": {
+      "REGISTERED_SUCCESSFULLY": "{userType} успешно регистриран/а",
+      "LOGIN_SUCCESSFUL": "Најавувањето е успешно",
+      "USER_UPDATED_SUCCESSFULLY": "Корисникот е успешно ажуриран",
+      "USER_DELETED_SUCCESSFULLY": "Корисникот е успешно избришан",
+      "USER_NOT_FOUND": "Корисникот не е пронајден"
+    }
+  },
+  "AUTH": {
+    "INVALID_CREDENTIALS": "Невалидни акредитиви"
+  },
+  "AD": {
+    "VALIDATION": {
+      "TITLE_REQUIRED": "Ве молиме додадете наслов за огласот",
+      "DESCRIPTION_REQUIRED": "Ве молиме додадете опис за огласот",
+      "SUBJECT_REQUIRED": "Ве молиме наведете го предметот на огласот",
+      "PRICE_REQUIRED": "Ве молиме додадете цена за курсот/сесијата",
+      "EDUCATION_LEVEL_REQUIRED": "Ве молиме наведете го нивото на образование"
+    },
+    "MESSAGES": {
+      "AD_NOT_FOUND": "Огласот не е пронајден"
+    }
+  },
+  "COMMON": {
+    "SERVER_ERROR": "Грешка на серверот. Ве молиме обидете се повторно подоцна.",
+    "INVALID_ID_FORMAT": "Невалиден формат на ID.",
+    "VALIDATION_FAILED": "Валидацијата не успеа."
+  }
 }
