@@ -1,7 +1,3 @@
-// middleware/errorMiddleware.js
-// This file defines a custom error handling middleware for Express.
-// It catches errors from routes and controllers and formats them into a consistent JSON response.
-
 const errorHandler = (err, req, res, next) => {
     // Determine the status code for the response.
     // If a status code was already set by a previous middleware/controller (e.g., res.status(409)), use it.

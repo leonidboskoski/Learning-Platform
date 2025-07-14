@@ -7,18 +7,28 @@
       "EMAIL_EXISTS": "Корисник со оваа е-пошта веќе постои",
       "PASSWORD_REQUIRED": "Ве молиме внесете лозинка",
       "NAME_REQUIRED": "Ве молиме внесете име",
-      "USER_TYPE_INVALID": "Невалиден тип на корисник. Мора да биде 'Професор' или 'Студент'."
+      "USER_TYPE_INVALID": "Невалиден тип на корисник. Мора да биде 'Професор' или 'Студент'.",
+      "PASSWORD_UPDATE_NOT_ALLOWED": "Лозинката не може да се ажурира преку оваа рута. Ве молиме користете посветена функција за промена на лозинката.",
+      "PASSWORD_FIELDS_REQUIRED": "Ве молиме внесете ги тековната и новата лозинка.", 
+      "PASSWORD_TOO_SHORT": "Новата лозинка мора да биде долга најмалку 6 знаци." 
     },
     "MESSAGES": {
       "REGISTERED_SUCCESSFULLY": "{userType} успешно регистриран/а",
       "LOGIN_SUCCESSFUL": "Најавувањето е успешно",
       "USER_UPDATED_SUCCESSFULLY": "Корисникот е успешно ажуриран",
       "USER_DELETED_SUCCESSFULLY": "Корисникот е успешно избришан",
-      "USER_NOT_FOUND": "Корисникот не е пронајден"
+      "USER_NOT_FOUND": "Корисникот не е пронајден",
+      "PASSWORD_CHANGED_SUCCESSFULLY": "Лозинката е успешно променета.",
+      "LOGOUT_SUCCESSFUL": "Успешно одјавен/а." 
     }
   },
   "AUTH": {
-    "INVALID_CREDENTIALS": "Невалидни акредитиви"
+    "INVALID_CREDENTIALS": "Невалидни акредитиви",
+    "INVALID_CSRF_TOKEN": "Невалиден CSRF токен.",
+    "NO_TOKEN": "Нема токен, авторизацијата е одбиена.",
+    "INVALID_TOKEN": "Неовластено, токенот не е валиден.",
+    "USER_NOT_FOUND_TOKEN": "Корисникот не е пронајден за овој токен.",
+    "INCORRECT_CURRENT_PASSWORD": "Тековната лозинка е неточна." 
   },
   "AD": {
     "VALIDATION": {
