@@ -41,6 +41,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const user = await User.create(userData);
 
     if (user) {
+        // 1. Issue JWT cookie (Authentication)
         res.cookie('jwt', generateToken(user._id), {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
@@ -48,6 +49,7 @@ const registerUser = asyncHandler(async (req, res) => {
             maxAge: 30 * 24 * 60 * 60 * 1000,
         });
 
+        // 2. Respond with user data (NO CSRF token here)
         res.status(201).json({
             message: req.__mf('USER.MESSAGES.REGISTERED_SUCCESSFULLY', { userType: user.userType }),
             user: {
@@ -67,8 +69,7 @@ const registerUser = asyncHandler(async (req, res) => {
                 }),
                 createdAt: user.createdAt,
                 updatedAt: user.updatedAt,
-            },
-            csrfToken: req.csrfToken()
+            }
         });
     } else {
         res.status(400);
@@ -90,6 +91,7 @@ const loginUser = asyncHandler(async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user && (await bcrypt.compare(password, user.password))) {
+        // Issue JWT cookie (Authentication)
         res.cookie('jwt', generateToken(user._id), {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
@@ -97,6 +99,7 @@ const loginUser = asyncHandler(async (req, res) => {
             maxAge: 30 * 24 * 60 * 60 * 1000,
         });
 
+        // Respond with user data (NO CSRF token here)
         res.status(200).json({
             message: req.__('USER.MESSAGES.LOGIN_SUCCESSFUL'),
             user: {
@@ -104,8 +107,7 @@ const loginUser = asyncHandler(async (req, res) => {
                 userType: user.userType,
                 email: user.email,
                 name: user.name,
-            },
-            csrfToken: req.csrfToken()
+            }
         });
     } else {
         res.status(401);
@@ -125,9 +127,6 @@ const getAllUsers = asyncHandler(async (req, res) => {
 // @route   GET /api/users/:id
 // @access  Private (now protected)
 const getUserById = asyncHandler(async (req, res) => {
-    // We can still use req.params.id to fetch *any* user if the authenticated user
-    // is allowed to view others (e.g., an admin).
-    // If a user should only view their OWN profile, change 'req.params.id' to 'req.user._id'.
     const user = await User.findById(req.params.id).select('-password');
 
     if (user) {
@@ -167,7 +166,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // @route   DELETE /api/users/:id
 // @access  Private (requires authentication)
 const deleteUser = asyncHandler(async (req, res) => {
-
     const userId = req.user._id;
 
     const user = await User.findByIdAndDelete(userId);
@@ -182,7 +180,7 @@ const deleteUser = asyncHandler(async (req, res) => {
     }
 });
 
-// NEW FUNCTION: @desc Change user's password
+// @desc Change user's password
 // @route   PUT /api/users/change-password
 // @access  Private
 const changePassword = asyncHandler(async (req, res) => {
@@ -219,6 +217,7 @@ const changePassword = asyncHandler(async (req, res) => {
 
     await user.save();
 
+    // Invalidate the existing JWT to force a re-login
     res.cookie('jwt', '', {
         httpOnly: true,
         expires: new Date(0), 
@@ -245,6 +244,17 @@ const logoutUser = asyncHandler(async (req, res) => {
     res.status(200).json({ message: req.__('USER.MESSAGES.LOGOUT_SUCCESSFUL') });
 });
 
+// @desc    Get a new CSRF token
+// @route   GET /api/users/csrf-token
+// @access  Private (Requires protect middleware to ensure user is logged in)
+const getCsrfToken = asyncHandler(async (req, res) => {
+    // req.csrfToken() is available here because csrfProtection runs on the route
+    res.status(200).json({
+        csrfToken: req.csrfToken()
+    });
+});
+
+
 module.exports = {
     registerUser,
     loginUser,
@@ -253,5 +263,6 @@ module.exports = {
     updateUserProfile,
     deleteUser,
     changePassword,
-    logoutUser
-}
+    logoutUser,
+    getCsrfToken
+};

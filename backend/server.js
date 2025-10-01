@@ -1,7 +1,3 @@
-// server.js
-// This is the main entry point for our Express application.
-// It sets up the server, connects to MongoDB, and connects the routes.
-
 const express = require("express")
 const dotenv = require("dotenv")
 const connectDB = require('./config/db')
@@ -34,38 +30,34 @@ i18n.configure({
 
 app.use(bodyParser.json())
 
-app.use(cookieParser()); // Must be before csurf
+app.use(cookieParser())
 
-app.use(i18n.init); // Must be before routes/controllers using req.__()
+app.use(i18n.init)
 
-const csrfProtection = csurf({ cookie: true });
-
-// NEW PLACEMENT: Apply csrfProtection globally AFTER cookie-parser and i18n.init
-// This ensures req.csrfToken() is available for all subsequent routes.
-app.use(csrfProtection); // <--- MOVED HERE
+const csrfProtection = csurf({ cookie: true })
 
 app.get('/',(req,res) => {
-    // Now req.csrfToken() will be available here because csrfProtection runs globally
-    res.json({ message: 'API is running...', csrfToken: req.csrfToken() });
-});
+    res.json({ message: 'API is running...' })
+})
 
-app.use('/api/users', userRoutes) // This now gets CSRF protection automatically
+app.use('/api/users', userRoutes)
 
-// Custom CSRF error handling middleware (must be after csurf)
 app.use((err, req, res, next) => {
     if (err.code === 'EBADCSRFTOKEN') {
         res.status(403).json({
             code: 'AUTH.INVALID_CSRF_TOKEN',
             message: req.__('AUTH.INVALID_CSRF_TOKEN'),
             stack: process.env.NODE_ENV === 'production' ? null : err.stack,
-        });
+        })
     } else {
-        next(err);
+        next(err)
     }
-});
+})
 
-app.use(errorHandler);
+app.use(errorHandler)
 
 app.listen(PORT,() => {
     console.log(`Server running on the port ${PORT}`)
 })
+
+module.exports = csrfProtection
